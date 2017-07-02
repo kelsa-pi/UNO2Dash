@@ -14,9 +14,7 @@ IDE Plugins: Atom, Brackets, Emacs, KDevelop, PyCharm, Sublime Text, VIM, Visual
 ## Generate docset
 Used UNO documentation from [LibreOffice](https://www.libreoffice.org). For general instructions see [Any HTML Documentation](https://kapeli.com/docsets#dashDocset).
 1. Download and install the latest [LibreOffice SDK](https://www.libreoffice.org/download/download/)
-1. Create folder `DashProject`
-1. In  `DashProject` create the UNO docset folder structure `mkdir -p UNO.docset/Contents/Resources/Documents/`
+1. Dowlnoad or clone this repo
 1. Copy content of the SDK documentation folder `ref` (e.g. on Ubuntu `/opt/libreoffice5.3/sdk/docs/idl/ref`) to `UNO.docset/Contents/Resources/Documents/`folder (~ 300 MB) 
-1. Copy script `UNO2Dash.py.` in `DashProject` and run it
+1. Run script `UNO2Dash.py`
 1. Place `UNO.docset`in path (e.g on Ubuntu `USER/.local/share/Zeal/Zeal/docsets/`)
-
