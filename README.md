@@ -16,10 +16,6 @@ Used UNO documentation from [LibreOffice](https://www.libreoffice.org). For gene
 1. Uninstall SDK (optional)
 
 <p align="center">
-  <img src="image.png">
+    <b>Offline documentation browser</b>
+    <img src="image.png">
 </p>
-
-
-
-sseses
-![Zeal offline documentation browser](image.png)
