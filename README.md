@@ -9,7 +9,7 @@ UNO2Dash
 ## Generate docset
 Used UNO documentation from [LibreOffice](https://www.libreoffice.org). For general instructions see [Any HTML Documentation](https://kapeli.com/docsets#dashDocset).
 1. Download and install the latest [LibreOffice SDK](https://www.libreoffice.org/download/download/)
-1. Downlnoad or clone this repo
+1. Download or clone this repo
 1. Copy content of the SDK documentation folder `ref` (e.g. on Ubuntu `/opt/libreoffice5.3/sdk/docs/idl/ref`) to `UNO.docset/Contents/Resources/Documents/`folder (~ 300 MB) 
 1. Run script `UNO2Dash.py`
 1. Place `UNO.docset`in Dash-like apps path (e.g on Ubuntu `USER/.local/share/Zeal/Zeal/docsets/`)
