@@ -9,6 +9,8 @@ UNO2Dash
 * [Dash](https://kapeli.com/dash_ios) for iOS and
 * [LovelyDocs](http://lovelydocs.io) for Android.
 
+IDE Plugins: Atom, Brackets, Emacs, KDevelop, PyCharm, Sublime Text, VIM, Visual Studio Code...
+
 ## Generate docset
 Used UNO documentation from [LibreOffice](https://www.libreoffice.org). For general instructions see [Any HTML Documentation](https://kapeli.com/docsets#dashDocset).
 1. Download and install the latest [LibreOffice SDK](https://www.libreoffice.org/download/download/)
