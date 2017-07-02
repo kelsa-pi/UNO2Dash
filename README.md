@@ -15,5 +15,5 @@ Used UNO documentation from [LibreOffice](https://www.libreoffice.org). For gene
 1. Place `UNO.docset`in Dash-like apps path (e.g on Ubuntu `USER/.local/share/Zeal/Zeal/docsets/`)
 1. Uninstall SDK (optional)
 
-
+Zeal offline documentation browser
 ![Zeal offline documentation browser](image.png)
