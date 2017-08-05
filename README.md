@@ -3,7 +3,7 @@ UNO2Dash
 **U**niversal **N**etwork **O**bjects (UNO) is the component model used in the OpenOffice.org and LibreOffice computer software application suites. UNO language bindings exist for C++ (compiler-dependent), Java, Object REXX, Python (PyUNO), Tcl, StarOffice Basic, OLE Automation and the .NET Common Language Infrastructure.
 
 **Dash** is offline documentation browser. Dash-like apps are: [Dash](https://kapeli.com/dash) for OS X,
-[Velocity]() for Windows, [Zeal](https://zealdocs.org/) for Linux, [Dash](https://kapeli.com/dash_ios) for iOS and
+[Velocity](https://velocity.silverlakesoftware.com/) for Windows, [Zeal](https://zealdocs.org/) for Linux, [Dash](https://kapeli.com/dash_ios) for iOS and
 [LovelyDocs](http://lovelydocs.io) for Android. IDE Plugins: Atom, Brackets, Emacs, KDevelop, PyCharm, Sublime Text, VIM, Visual Studio Code...
 
 ## Generate docset
