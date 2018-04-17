@@ -3,6 +3,13 @@
 import os
 import sqlite3
 from bs4 import BeautifulSoup
+import time
+
+UNO_VERSION = "UNO"
+
+start = time.time()
+print("\nWorking...")
+
 
 docset_name = 'UNO.docset'
 docset_doc = 'UNO.docset/Contents/Resources/Documents'
@@ -69,6 +76,10 @@ for root, dirs, files in os.walk(docset_doc, topdown=False):
                                 cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (fullname, types, path))
 
 conn.commit()
+
+cur.execute('SELECT * FROM searchIndex;')
+rows = cur.fetchall()
+
 conn.close()
 
 # add info.plist
@@ -82,17 +93,19 @@ plist_cfg = """<?xml version="1.0" encoding="UTF-8"?>
     <key>CFBundleName</key>
     <string>UNO</string>
     <key>DocSetPlatformFamily</key>
-    <string>UNO</string>
+    <string>{}</string>
     <key>isDashDocset</key>
     <true/>
     <key>dashIndexFilePath</key>
     <string>index.html</string>
 </dict>
 </plist>
-"""
+""".format(UNO_VERSION)
 with open(plist_path,'w') as pl:
     pl.write(plist_cfg)
+    
+end = time.time()
 
-print('\nFinished')
-
+print('\nRows in database: ' + str(len(rows)))
+print('\nFinished in %s seconds.' % (end - start))
 
