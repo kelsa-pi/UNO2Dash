@@ -5,17 +5,19 @@ import sqlite3
 from bs4 import BeautifulSoup
 import time
 
-UNO_VERSION = "UNO"
 
 start = time.time()
 print("\nWorking...")
 
+UNO_VERSION = "UNO"
+DOCSET_NAME = 'UNO.docset'
 
-docset_name = 'UNO.docset'
-docset_doc = 'UNO.docset/Contents/Resources/Documents'
+DOCSET_DOC = os.path.join(DOCSET_NAME, 'Contents', 'Resources', 'Documents')
+os.makedirs(DOCSET_DOC, exist_ok=True)
 
-docset_db = os.path.join(docset_name,'Contents', 'Resources','docSet.dsidx')
-conn = sqlite3.connect(docset_db)
+DOCSET_DB = os.path.join(DOCSET_NAME, 'Contents', 'Resources','docSet.dsidx')
+
+conn = sqlite3.connect(DOCSET_DB)
 cur = conn.cursor()
 
 try:
@@ -42,10 +44,10 @@ pages_types = {
     'namespacemembers_eval': 'Constant',
     }
 
-for root, dirs, files in os.walk(docset_doc, topdown=False):
+for root, dirs, files in os.walk(DOCSET_DOC, topdown=False):
     for f in files:
         if f.startswith('classes.html'):
-            page = open(os.path.join(docset_doc, f)).read()
+            page = open(os.path.join(DOCSET_DOC, f)).read()
             soup = BeautifulSoup(page, 'html.parser')
             for tag in soup.find_all('td'):
                 elements = tag.text.split(':')
@@ -62,7 +64,7 @@ for root, dirs, files in os.walk(docset_doc, topdown=False):
         else:
             for p in pages_types.keys():
                 if f.startswith(p):
-                    page = open(os.path.join(docset_doc, f)).read()
+                    page = open(os.path.join(DOCSET_DOC, f)).read()
                     soup = BeautifulSoup(page, 'html.parser')
                     for tag in soup.find_all('li'):
                         elements = tag.text.split(':')
@@ -83,7 +85,7 @@ rows = cur.fetchall()
 conn.close()
 
 # add info.plist
-plist_path = os.path.join(docset_name, "Contents", "Info.plist")
+plist_path = os.path.join(DOCSET_NAME, "Contents", "Info.plist")
 plist_cfg = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -107,5 +109,9 @@ with open(plist_path,'w') as pl:
 end = time.time()
 
 print('\nRows in database: ' + str(len(rows)))
-print('\nFinished in %s seconds.' % (end - start))
+
+end = time.time()
+m, s = divmod(end - start, 60)
+h, m = divmod(m, 60)
+print("\nFinished in %d:%02d:%02d (hour:min:sec)\n" % (h, m, s))
 
